@@ -26,6 +26,7 @@ class AppState extends State<App> {
           },
           child: Icon(Icons.update),
         ),
+        body: Text('$counter button have pressed'),
       ),
     );
   }
