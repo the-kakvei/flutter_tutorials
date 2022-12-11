@@ -2,6 +2,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' show get;
 
 class App extends StatefulWidget {
   createState() {
@@ -12,7 +13,12 @@ class App extends StatefulWidget {
 class AppState extends State<App> {
   int counter = 0;
 
-  void fetchImage() {}
+  void fetchImage() async {
+    counter += 1;
+    var url = Uri.https('jsonplaceholder.typicode.com', '/photos/$counter');
+    var response = await get(url);
+    inspect(response);
+  }
 
   Widget build(BuildContext context) {
     return MaterialApp(
